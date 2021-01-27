@@ -11,7 +11,7 @@ export default async (req, res) => {
             fields: createdRecords[0].fields,
         }
         res.statusCode = 200
-        res.json(createdRecords);
+        res.json(createdRecord);
     } catch (err) {
         console.error(err);
         res.statusCode = 500;
