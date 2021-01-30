@@ -9,7 +9,7 @@ export default function TodoForm({user}){
         e.preventDefault();
         console.log(todo);
         addTodo(todo);
-        //setTodo('');
+        setTodo('');
     };
 
     return (
