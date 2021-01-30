@@ -1,9 +1,10 @@
 import {table, getMinifydRecord} from "./utils/Airtable";
 import auth0 from "./utils/auth0";
+import OwnsRecord from "./middleware/OwnsRecord";
 
-export default auth0.requireAuthentication(async (req, res) => {
+export default OwnsRecord(async (req, res) => {
     const {id} = req.body;
-    const {user} = await auth0.getSession();
+    const {user} = await auth0.getSession(req);
     try{
         const deletedRecords = await table.destroy([id]);
         res.statusCode = 200
